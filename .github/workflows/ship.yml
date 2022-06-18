@@ -22,7 +22,7 @@ jobs:
         run: deno install -A https://pax.deno.dev/hasundue/ghlog/ghlog.ts 
 
       - name: Generate Release Notes
-        run: ghlog ${{ github.repository }} -s | xargs -I {tag} "NEW_TAG={tag}" >> $GITHUB_ENV
+        run: ghlog ${{ github.repository }} -s | xargs -I {tag} echo "NEW_TAG={tag}" >> $GITHUB_ENV
 
       - name: Release v${{ env.NEW_TAG }}
         uses: ncipollo/release-action@v1
