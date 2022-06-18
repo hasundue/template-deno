@@ -24,11 +24,11 @@ jobs:
       - name: Generate Release Notes
         run: ghlog ${{ github.repository }} -s | xargs -I {tag} echo "NEW_TAG={tag}" >> $GITHUB_ENV
 
-      - name: Release v${{ env.NEW_TAG }}
+      - name: Release ${{ env.NEW_TAG }}
         uses: ncipollo/release-action@v1
         with:
           tag: '${{ env.NEW_TAG }}'
-          name: 'v${{ env.NEW_TAG }}'
+          name: '${{ env.NEW_TAG }}'
           bodyFile: 'CHANGELOG.md'
           draft: false
           token: ${{ secrets.GITHUB_TOKEN }}
