@@ -4,17 +4,25 @@ on:
   push:
     branches: [ main ]
 
+env:
+  account_id: ${{ secrets.ACCOUNT_ID }}
+  api_token: ${{ secrets.API_TOKEN }}
+
 jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+
   release:
+    needs: test
+
     runs-on: ubuntu-latest
-    timeout-minutes: 20
 
     steps:
-      - name: Checkout Code
+      - name: Checkout
         uses: actions/checkout@v2
 
       - name: Setup Deno
-        uses: denolib/setup-deno@v2
+        uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x
 
@@ -24,7 +32,9 @@ jobs:
       - name: Generate Release Notes
         run: ghlog ${{ github.repository }} -s | xargs -I {tag} echo "NEW_TAG={tag}" >> $GITHUB_ENV
 
-      - name: Release ${{ env.NEW_TAG }}
+      - name: Release
+        id: release
+        if: ${{ env.NEW_TAG != 'UNRELEASED' }}
         uses: ncipollo/release-action@v1
         with:
           tag: '${{ env.NEW_TAG }}'
