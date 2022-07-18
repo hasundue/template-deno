@@ -35,7 +35,7 @@ jobs:
             ```
             ${{ env.UDD_RESULT }}
             ```
-          branch: deno-dependency-updates
+          branch: udd-deps
           author: GitHub <noreply@github.com>
           delete-branch: true
 
@@ -68,6 +68,6 @@ jobs:
             ```
             ${{ env.UDD_RESULT }}
             ```
-          branch: deno-dependency-updates
+          branch: udd-deps-dev
           author: GitHub <noreply@github.com>
           delete-branch: true
