@@ -1,9 +1,9 @@
 # boilerplate-deno
 
-![test](https://github.com/hasundue/boilerplate-deno/actions/workflows/test.yml/badge.svg)
+![CI](https://github.com/hasundue/boilerplate-deno/actions/workflows/ci.yml/badge.svg)
 [![codecov](https://codecov.io/gh/hasundue/boilerplate-deno/branch/main/graph/badge.svg?token=7BS432RAXB)](https://codecov.io/gh/hasundue/boilerplate-deno)
 
-A boilerplate for Deno projects. Deno 100%.
+A boilerplate for Deno projects. Only depends on Deno.
 
 ## Features
 
