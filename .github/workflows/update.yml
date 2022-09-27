@@ -1,4 +1,4 @@
-name: update
+name: Update
 
 on:
   workflow_dispatch:
@@ -7,6 +7,7 @@ on:
 
 jobs:
   update-deps:
+    name: Update dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -40,6 +41,7 @@ jobs:
           delete-branch: true
 
   update-deps-dev:
+    name: Update dev dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
