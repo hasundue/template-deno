@@ -8,5 +8,6 @@ A boilerplate for Deno projects. Only depends on Deno.
 ## Features
 
 - Format, lint, test, and coverage with built-in functions of Deno
-- Semantic release by [denomantic-release](https://github.com/hasundue/denomantic-release)
+- Semantic release by
+  [denomantic-release](https://github.com/hasundue/denomantic-release)
 - Dependency update by [udd](https://github.com/hayd/deno-udd)
