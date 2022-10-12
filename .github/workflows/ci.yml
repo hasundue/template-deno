@@ -4,8 +4,6 @@ on:
   push:
     branches: 
       - main
-    paths-ignore:
-      - '**.md'
   workflow_dispatch:
 
 jobs:
@@ -17,3 +15,4 @@ jobs:
     name: Release
     needs: test
     uses: ./.github/workflows/release.yml
+    secrets: inherit
