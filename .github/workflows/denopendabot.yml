@@ -3,26 +3,35 @@ name: Denopendabot
 on:
   workflow_dispatch:
   schedule:
-    - cron: "23 23 * * *"
+    - cron: "0 0 * * *" # modify to your convenient time
 
 jobs:
-  update:
-    name: Update
+  run:
+    name: Run App
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      # dispatch a `denopendabot_run` repository event
+      - name: Dispatch Run
+        uses: hasundue/denopendabot@0.10.1 # @denopendabot hasundue/denopendabot
+        with: 
+          mode: app
+          # or 'action' if you want run Denopendabot locally
 
-      - name: Setup Deno
-        uses: denoland/setup-deno@v1
-        with:
-          deno-version: v1.26.1 # @denopendabot denoland/deno
+          # branch to update dependencies
+          base-branch: main 
 
-      - name: Run Denopendabot
-        run: >
-          deno run -q --allow-env --allow-net --allow-read
-          https://deno.land/x/denopendabot@0.1.0/main.ts
-          ${{ github.repository }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          # branch for Denopendabot to commit changes
+          working-branch: denopendabot
+
+          # labels for pull requests
+          labels: dependencies
+
+          # merge pull requests automatically if all the checks are passing
+          auto-merge: any 
+
+          # only update specific files
+          # include: mod.ts deps.ts
+          
+          # exclude specific files
+          # exclude: deno.json LICENSE
