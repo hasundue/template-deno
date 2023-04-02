@@ -18,12 +18,12 @@ jobs:
       - name: Setup Deno
         uses: denoland/setup-deno@v1
         with:
-          deno-version: v1.26.1 # @denopendabot denoland/deno
+          deno-version: v1.32.3 # @denopendabot denoland/deno
 
       - name: Semantic Release
         run: >
           deno run -q --allow-env --allow-net --allow-read
-          https://deno.land/x/denomantic_release@0.3.1/main.ts
+          https://deno.land/x/denomantic_release@0.8.1/main.ts
           ${{ github.repository }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
