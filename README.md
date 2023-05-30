@@ -4,7 +4,7 @@
 
 ![Test](https://github.com/hasundue/template-deno/actions/workflows/ci.yml/badge.svg)
 [![codecov](https://codecov.io/gh/hasundue/template-deno/branch/main/graph/badge.svg?token=7BS432RAXB)](https://codecov.io/gh/hasundue/template-deno)
-![denoland/deno](https://img.shields.io/badge/Deno-v1.33.2-informational?logo=deno) <!-- @denopendabot denoland/deno -->
+![denoland/deno](https://img.shields.io/badge/Deno-v1.34.0-informational?logo=deno) <!-- @denopendabot denoland/deno -->
 
 <!-- deno-fmt-ignore-end -->
 
